@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html class="light" lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>المقابلات | موسوعة عمان وقانون البحار</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#1754cf",
+                    "background-light": "#f6f6f8",
+                    "background-dark": "#111621",
+                },
+                fontFamily: { "display": ["Cairo", "sans-serif"] },
+                borderRadius: {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
+            },
+        },
+    }
+</script>
+<style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    body { font-family: 'Cairo', sans-serif; }
+    .interview-card { transition: box-shadow 0.25s ease, transform 0.25s ease; }
+    .interview-card:hover { box-shadow: 0 8px 32px rgba(23,84,207,0.13); transform: translateY(-3px); }
+    .play-btn { transition: transform 0.2s ease, background 0.2s ease; }
+    .interview-card:hover .play-btn { transform: scale(1.1); background: #1244a8; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    .fade-in { animation: fadeIn 0.5s ease forwards; }
+    .filter-btn {
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-size: 14px;
+        font-weight: 700;
+        font-family: 'Cairo', sans-serif;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1.5px solid #e7ebf3;
+        background: #ffffff;
+        color: #4e6797;
+    }
+    .filter-btn:hover { border-color: #1754cf; color: #1754cf; }
+    .filter-btn.active { background: #1754cf !important; color: #ffffff !important; border-color: #1754cf !important; }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0e121b] dark:text-gray-100 min-h-screen">
+
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-solid border-[#e7ebf3] dark:border-gray-800">
+    <div class="max-w-[1200px] mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4 md:gap-8">
+        <div class="flex items-center gap-4 md:gap-8">
+            <div class="flex items-center gap-2">
+                <!-- <div class="size-5 md:size-7 text-primary flex-shrink-0">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path></svg>
+                </div> -->
+                <a href="index.html"><h2 class="text-base md:text-xl font-bold tracking-tight hover:text-primary transition-colors cursor-pointer">موسوعة عُمان وقانون البحار</h2></a>
+            </div>
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+                <a class="text-[#4e6797] dark:text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="author_portfolio.html">الكتب</a>
+                <a class="text-[#4e6797] dark:text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="about.html">عن المؤلف</a>
+                <a class="text-primary text-sm font-semibold border-b-2 border-primary pb-1" href="interviews.html">المقابلات</a>
+                <a class="text-[#4e6797] dark:text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="articles.html">المقالات</a>
+                <a class="text-[#4e6797] dark:text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="lectures.html">المحاضرات</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-2">
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span id="menu-icon" class="material-symbols-outlined text-slate-600 dark:text-slate-300" style="font-size:22px">menu</span>
+            </button>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 dark:border-slate-800">
+        <nav class="flex flex-col px-4 py-2">
+            <a class="py-3 text-sm font-medium hover:text-primary border-b border-slate-100 dark:border-slate-800" href="author_portfolio.html">الكتب</a>
+            <a class="py-3 text-sm font-medium hover:text-primary border-b border-slate-100 dark:border-slate-800" href="about.html">عن المؤلف</a>
+            <a class="py-3 text-sm font-semibold text-primary border-b border-slate-100 dark:border-slate-800" href="interviews.html">المقابلات</a>
+            <a class="py-3 text-sm font-medium hover:text-primary border-b border-slate-100 dark:border-slate-800" href="articles.html">المقالات</a>
+            <a class="py-3 text-sm font-medium hover:text-primary" href="lectures.html">المحاضرات</a>
+        </nav>
+    </div>
+</header>
+
+<main class="max-w-[1000px] mx-auto px-4 md:px-6 py-8 md:py-12">
+
+    <!-- Page Hero -->
+    <div class="mb-10 md:mb-14">
+        <div class="flex items-center gap-3 mb-3">
+            <div class="w-1 h-8 bg-primary rounded-full"></div>
+            <span class="text-primary font-bold text-sm uppercase tracking-widest">مقابلات مرئية ومسموعة</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-[#0e121b] dark:text-white leading-tight mb-4">المقابلات</h1>
+        <p class="text-[#4e6797] dark:text-gray-400 text-base md:text-lg max-w-2xl leading-relaxed">مقابلات الدكتور علي بن أحمد العيسائي مع القنوات الفضائية والإذاعات العربية في القضايا السياسية والدبلوماسية.</p>
+    </div>
+
+    <!-- Channel filter pills -->
+    <div class="flex flex-wrap gap-2 mb-8" id="filter-btns">
+        <button onclick="filterBy('all')" class="filter-btn" data-filter="all">الكل</button>
+        <button onclick="filterBy('الوصال')" class="filter-btn" data-filter="الوصال">الوصال</button>
+        <button onclick="filterBy('اذاعة سلطنة عمان')" class="filter-btn" data-filter="اذاعة سلطنة عمان">إذاعة سلطنة عمان</button>
+        <button onclick="filterBy('العربية')" class="filter-btn" data-filter="العربية">العربية</button>
+        <button onclick="filterBy('قناة الحرة')" class="filter-btn" data-filter="قناة الحرة">قناة الحرة</button>
+        <button onclick="filterBy('قناة الاخبارية')" class="filter-btn" data-filter="قناة الاخبارية">الاخبارية</button>
+        <button onclick="filterBy('الحدث')" class="filter-btn" data-filter="الحدث">الحدث</button>
+    </div>
+
+    <div class="text-[#4e6797] text-sm font-medium mb-6" id="count-label">عرض 16 مقابلة</div>
+
+    <!-- Interviews Grid -->
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8" id="interviews-grid">
+
+        <!-- Card 1 -->
+        <a href="https://www.youtube.com/watch?v=DPtBmf4pKxo" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="العربية">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #8b1a1a 0%, #c0392b 60%, #e74c3c 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:5rem;font-weight:900;">العربية</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#c0392b;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">ع</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">العربية</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">tv</span>
+                    <span>قناة العربية</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">مداخلة مع الدكتور علي العيسائي عضو مجلس الدولة العماني</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="https://www.youtube.com/watch?v=wvk0uu1k-As" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="قناة الحرة">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #1a3a6b 0%, #1754cf 60%, #3b7de8 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:5rem;font-weight:900;">الحرة</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#1754cf;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">ح</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">قناة الحرة</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">tv</span>
+                    <span>قناة الحرة</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">مسقط تعلن نجاح عملية تبادل سجناء بين بلجيكا وإيران</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="https://www.youtube.com/watch?v=91NLhvo1lQw" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="قناة الاخبارية">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #1a4a1a 0%, #27ae60 60%, #2ecc71 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:4rem;font-weight:900;">الاخبارية</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#27ae60;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">خ</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">قناة الاخبارية</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">tv</span>
+                    <span>قناة الاخبارية</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">الكاتب السياسي د.أحمد الأنصاري: العلاقات السعودية العمانية عميقة بين الحكومتين وتمتد إلى تاريخ قديم</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="https://www.youtube.com/watch?v=46Fve4sdzL4" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="الوصال">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #4a1a6b 0%, #8e44ad 60%, #9b59b6 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:5rem;font-weight:900;">الوصال</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#8e44ad;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">و</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">الوصال</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">tv</span>
+                    <span>قناة الوصال</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">منتدى الوصال | الخليج أولًا .. ونهج عماني راسخ</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="https://www.youtube.com/live/E6PvC3547ds" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="الوصال">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #4a1a6b 0%, #8e44ad 60%, #9b59b6 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:5rem;font-weight:900;">الوصال</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#8e44ad;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">و</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">الوصال</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">tv</span>
+                    <span>قناة الوصال</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">فوانيس الوصال | مع سالم العمري وضيفه الدكتور علي العيسائي</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 6 -->
+        <a href="https://www.instagram.com/reel/DUTH6UZCgD5/?igsh=MTNsZ2VpcWpsNndtaA%3D%3D" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="اذاعة سلطنة عمان">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #0a3d6b 0%, #1754cf 50%, #c8a96e 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:3.5rem;font-weight:900;">إذاعة عُمان</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#0a3d6b;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">ذ</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">إذاعة سلطنة عمان</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-gradient-to-r from-purple-600 to-pink-500 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">إنستغرام</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">radio</span>
+                    <span>إذاعة سلطنة عمان</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">ماذا تريد أمريكا من إيران؟ وهل يمكن أن تتخلى إيران عن برنامجها النووي؟</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-pink-500" style="font-size:20px">photo_camera</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 7 -->
+        <a href="https://www.instagram.com/reel/DUTHdjjigm_/?igsh=MTM4b3d4d3M2N2tzMQ%3D%3D" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="اذاعة سلطنة عمان">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #0a3d6b 0%, #1754cf 50%, #c8a96e 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:3.5rem;font-weight:900;">إذاعة عُمان</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#0a3d6b;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">ذ</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">إذاعة سلطنة عمان</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-gradient-to-r from-purple-600 to-pink-500 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">إنستغرام</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">radio</span>
+                    <span>إذاعة سلطنة عمان</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">ما تداعيات التوترات الأمريكية – الإيرانية على المنطقة؟ ولماذا تتصاعد الضغوط السياسية حاليًا؟</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-pink-500" style="font-size:20px">photo_camera</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 8 -->
+        <a href="https://youtube.com/watch?si=dSjtC0iduElsnwaT&v=XXgybDW2jMw&feature=youtu.be" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="اذاعة سلطنة عمان">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #0a3d6b 0%, #1754cf 50%, #c8a96e 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:3.5rem;font-weight:900;">إذاعة عُمان</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#0a3d6b;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">ذ</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">إذاعة سلطنة عمان</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">radio</span>
+                    <span>إذاعة سلطنة عمان</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">التوتر الأمريكي – الإيراني: إلى أين تتجه المواجهة؟ وما انعكاساتها على أمن واستقرار المنطقة</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 9 -->
+        <a href="https://www.youtube.com/watch?v=zPfBdDl_qb4" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="الحدث">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #1a1a3a 0%, #2c3e7a 60%, #3d5fa0 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:5rem;font-weight:900;">الحدث</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#2c3e7a;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">ح</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">الحدث</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">tv</span>
+                    <span>قناة الحدث</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">الحدث في مكانك (19) | أبناء معمر القذافي يظهرون في أسبوع واحد.. أين ولماذا؟</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 10 -->
+        <a href="https://www.youtube.com/live/cJujTq39Hqw" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="الوصال">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #4a1a6b 0%, #8e44ad 60%, #9b59b6 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:5rem;font-weight:900;">الوصال</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#8e44ad;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">و</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">الوصال</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">tv</span>
+                    <span>قناة الوصال</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">الدكتور علي العيسائي ضيف برنامج القصة مع سالم العمري</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 11 -->
+        <a href="https://www.youtube.com/watch?v=L8erijgsLtE" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="مركز الاتحاد للأخبار">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #5a3e00 0%, #d4880a 60%, #f39c12 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:4rem;font-weight:900;">الاتحاد</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#d4880a;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">ا</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">مركز الاتحاد</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">tv</span>
+                    <span>مركز الاتحاد للأخبار</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">د. علي بن أحمد العيسائي: هذه الزيارة تحظى بكل ما يليق بها ويليق بالضيف الكريم</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 12 -->
+        <a href="https://www.youtube.com/watch?v=tltcd9UnTs0" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="اذاعة هلا أف أم">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #1a4a3a 0%, #16a085 60%, #1abc9c 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:4rem;font-weight:900;">هلا FM</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#16a085;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">ه</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">إذاعة هلا FM</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">radio</span>
+                    <span>إذاعة هلا أف أم</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">متقاعد حاليًا | د. علي العيسائي يكشف كواليس الوساطة العُمانية والملف النووي واليمن</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 13 -->
+        <a href="https://www.youtube.com/live/vP-D6fIzBGA" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="الوصال">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #4a1a6b 0%, #8e44ad 60%, #9b59b6 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:5rem;font-weight:900;">الوصال</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#8e44ad;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">و</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">الوصال</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">tv</span>
+                    <span>قناة الوصال</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">الحرب بين إيران وإسرائيل .. سيناريوهات التصعيد</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 14 -->
+        <a href="https://youtube.com/live/un2Z2rcNEr8?si=i8gUE-0i3sXe6Iyk" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="الوصال">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #4a1a6b 0%, #8e44ad 60%, #9b59b6 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:5rem;font-weight:900;">الوصال</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#8e44ad;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">و</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">الوصال</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">tv</span>
+                    <span>قناة الوصال</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">هل محادثات أمريكا وإيران في مسقط فرصة أخيرة؟</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 15 -->
+        <a href="https://www.youtube.com/live/aB0qDAYFjnY" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="الوصال">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #4a1a6b 0%, #8e44ad 60%, #9b59b6 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:5rem;font-weight:900;">الوصال</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#8e44ad;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">و</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">الوصال</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-red-600/90 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">يوتيوب</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">tv</span>
+                    <span>قناة الوصال</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">نواصل الحوار مع الدكتور علي العيسائي في القصة مع سالم العمري</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">smart_display</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 16 -->
+        <a href="https://x.com/shabiba/status/1751210709382254913?s=48" target="_blank" class="interview-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800" data-channel="الشبيبة">
+            <div class="relative overflow-hidden" style="aspect-ratio:16/9; background: linear-gradient(135deg, #0a1a2e 0%, #1754cf 60%, #3b7de8 100%); display:flex; align-items:center; justify-content:center;">
+                <span style="color:white;opacity:0.1;font-size:5rem;font-weight:900;">الشبيبة</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="play-btn w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-white" style="font-size:28px;margin-right:-2px">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 rounded-lg px-2.5 py-1 shadow">
+                    <div style="width:20px;height:20px;background:#1754cf;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:white;font-size:9px;font-weight:800;">ش</span>
+                    </div>
+                    <span style="font-size:10px;font-weight:700;color:#0e121b;">الشبيبة</span>
+                </div>
+                <div class="absolute top-3 left-3 bg-black/80 px-2.5 py-1 rounded text-[10px] font-bold text-white uppercase tracking-wider">تويتر / X</div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">newspaper</span>
+                    <span>جريدة الشبيبة</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">مقابلة في برنامج مع الشبيبة</h3>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        مشاهدة المقابلة
+                        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                    </span>
+                    <span class="material-symbols-outlined text-slate-700" style="font-size:20px">alternate_email</span>
+                </div>
+            </div>
+        </a>
+
+    </div><!-- end grid -->
+
+</main>
+
+<!-- Footer -->
+<footer class="py-10 md:py-12 px-4 md:px-6 border-t border-[#e7ebf3] dark:border-gray-800 bg-background-light dark:bg-background-dark mt-16 md:mt-20">
+    <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8">
+        <div class="text-[#4e6797] text-sm text-center md:text-right">
+            © 2026 موسوعة عُمان وقانون البحار. جميع الحقوق محفوظة. <br> Developed by Sheikha Al Hadei
+        </div>
+        <div class="flex gap-4 md:gap-6">
+    
+            <a class="text-[#4e6797] hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+            
+        </div>
+    </div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+    const isHidden = menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    icon.textContent = isHidden ? 'close' : 'menu';
+}
+
+function filterBy(channel) {
+    const cards = document.querySelectorAll('#interviews-grid a');
+    const btns = document.querySelectorAll('.filter-btn');
+
+    btns.forEach(btn => btn.classList.remove('active'));
+
+    const activeBtn = document.querySelector(`.filter-btn[data-filter="${channel}"]`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    let count = 0;
+    cards.forEach(card => {
+        if (channel === 'all' || card.getAttribute('data-channel') === channel) {
+            card.style.display = '';
+            count++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    const label = channel === 'all' ? `عرض ${count} مقابلة` : `عرض ${count} مقابلة من ${channel}`;
+    document.getElementById('count-label').textContent = label;
+}
+
+// Set default active on load
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+});
+</script>
+
+</body>
+</html>

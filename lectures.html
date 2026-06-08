@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html class="light" lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>المحاضرات | موسوعة عمان وقانون البحار</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#1754cf",
+                    "background-light": "#f6f6f8",
+                    "background-dark": "#111621",
+                },
+                fontFamily: { "display": ["Cairo", "sans-serif"] },
+                borderRadius: {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
+            },
+        },
+    }
+</script>
+<style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    body { font-family: 'Cairo', sans-serif; }
+    .lecture-card { transition: box-shadow 0.25s ease, transform 0.25s ease; }
+    .lecture-card:hover { box-shadow: 0 8px 32px rgba(23,84,207,0.13); transform: translateY(-3px); }
+    .filter-btn {
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-size: 14px;
+        font-weight: 700;
+        font-family: 'Cairo', sans-serif;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1.5px solid #e7ebf3;
+        background: #ffffff;
+        color: #4e6797;
+    }
+    .filter-btn:hover { border-color: #1754cf; color: #1754cf; }
+    .filter-btn.active { background: #1754cf !important; color: #ffffff !important; border-color: #1754cf !important; }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0e121b] dark:text-gray-100 min-h-screen">
+
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-solid border-[#e7ebf3] dark:border-gray-800">
+    <div class="max-w-[1200px] mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4 md:gap-8">
+        <div class="flex items-center gap-4 md:gap-8">
+            <div class="flex items-center gap-2">
+                <!-- <div class="size-5 md:size-7 text-primary flex-shrink-0">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path></svg>
+                </div> -->
+                <a href="index.html"><h2 class="text-base md:text-xl font-bold tracking-tight hover:text-primary transition-colors cursor-pointer">موسوعة عُمان وقانون البحار</h2></a>
+            </div>
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+                <a class="text-[#4e6797] dark:text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="author_portfolio.html">الكتب</a>
+                <a class="text-[#4e6797] dark:text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="about.html">عن المؤلف</a>
+                <a class="text-[#4e6797] dark:text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="interviews.html">المقابلات</a>
+                <a class="text-[#4e6797] dark:text-gray-400 hover:text-primary transition-colors text-sm font-medium" href="articles.html">المقالات</a>
+                <a class="text-primary text-sm font-semibold border-b-2 border-primary pb-1" href="lectures.html">المحاضرات</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-2">
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span id="menu-icon" class="material-symbols-outlined text-slate-600 dark:text-slate-300" style="font-size:22px">menu</span>
+            </button>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 dark:border-slate-800">
+        <nav class="flex flex-col px-4 py-2">
+            <a class="py-3 text-sm font-medium hover:text-primary border-b border-slate-100 dark:border-slate-800" href="author_portfolio.html">الكتب</a>
+            <a class="py-3 text-sm font-medium hover:text-primary border-b border-slate-100 dark:border-slate-800" href="about.html">عن المؤلف</a>
+            <a class="py-3 text-sm font-medium hover:text-primary border-b border-slate-100 dark:border-slate-800" href="interviews.html">المقابلات</a>
+            <a class="py-3 text-sm font-medium hover:text-primary border-b border-slate-100 dark:border-slate-800" href="articles.html">المقالات</a>
+            <a class="py-3 text-sm font-semibold text-primary" href="lectures.html">المحاضرات</a>
+        </nav>
+    </div>
+</header>
+
+<main class="max-w-[1000px] mx-auto px-4 md:px-6 py-8 md:py-12">
+
+    <!-- Page Hero -->
+    <div class="mb-10 md:mb-14">
+        <div class="flex items-center gap-3 mb-3">
+            <div class="w-1 h-8 bg-primary rounded-full"></div>
+            <span class="text-primary font-bold text-sm uppercase tracking-widest">محاضرات أكاديمية وتخصصية</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-[#0e121b] dark:text-white leading-tight mb-4">المحاضرات</h1>
+        <p class="text-[#4e6797] dark:text-gray-400 text-base md:text-lg max-w-2xl leading-relaxed">محاضرات الدكتور علي بن أحمد العيسائي في الجامعات والمؤسسات الأكاديمية والعسكرية في مجالات القانون الدولي والسياسة الخارجية والدبلوماسية.</p>
+    </div>
+
+    <!-- Filter pills -->
+    <div class="flex flex-wrap gap-2 mb-8">
+        <button onclick="filterBy('all')" class="filter-btn active" data-filter="all">الكل</button>
+        <button onclick="filterBy('قانون البحار')" class="filter-btn" data-filter="قانون البحار">قانون البحار</button>
+        <button onclick="filterBy('السياسة الخارجية')" class="filter-btn" data-filter="السياسة الخارجية">السياسة الخارجية</button>
+        <button onclick="filterBy('الدبلوماسية')" class="filter-btn" data-filter="الدبلوماسية">الدبلوماسية</button>
+        <button onclick="filterBy('السياسة الدولية')" class="filter-btn" data-filter="السياسة الدولية">السياسة الدولية</button>
+    </div>
+
+    <div class="text-[#4e6797] text-sm font-medium mb-6" id="count-label">عرض 10 محاضرة</div>
+
+    <!-- Lectures Grid -->
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8" id="lectures-grid">
+
+        <!-- Lecture 1 -->
+        <a href="محاضرة_عن_القانون_الدولي_للبحار.pdf" target="_blank"
+           class="lecture-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800"
+           data-cat="قانون البحار">
+            <div class="relative p-6 md:p-8" style="background: linear-gradient(135deg, #0a1f3d 0%, #0d2a52 50%, #1754cf 100%);">
+                <div class="flex items-start justify-between gap-4">
+                    <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-white" style="font-size:26px">gavel</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1">
+                        <span class="material-symbols-outlined text-white/80" style="font-size:14px">picture_as_pdf</span>
+                        <span style="color:white;font-size:11px;font-weight:700;">PDF</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <span class="inline-block bg-white/15 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">قانون البحار</span>
+                    <h3 class="text-white font-black text-lg leading-snug">القانون الدولي للبحار</h3>
+                </div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <p class="text-[#4e6797] text-sm leading-relaxed mb-4 line-clamp-2">محاضرة تخصصية تغطي مبادئ القانون الدولي للبحار، المجالات البحرية، واتفاقية UNCLOS 1982 وتطبيقاتها.</p>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        تحميل المحاضرة
+                        <span class="material-symbols-outlined" style="font-size:16px">download</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">picture_as_pdf</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Lecture 2 -->
+        <a href="محاضرة_عمان_والمحيط_الهندي.pdf" target="_blank"
+           class="lecture-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800"
+           data-cat="قانون البحار">
+            <div class="relative p-6 md:p-8" style="background: linear-gradient(135deg, #0a3d6b 0%, #1565a8 50%, #1e88e5 100%);">
+                <div class="flex items-start justify-between gap-4">
+                    <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-white" style="font-size:26px">waves</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1">
+                        <span class="material-symbols-outlined text-white/80" style="font-size:14px">picture_as_pdf</span>
+                        <span style="color:white;font-size:11px;font-weight:700;">PDF</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <span class="inline-block bg-white/15 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">قانون البحار</span>
+                    <h3 class="text-white font-black text-lg leading-snug">عُمان والمحيط الهندي</h3>
+                </div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <p class="text-[#4e6797] text-sm leading-relaxed mb-4 line-clamp-2">دراسة في العلاقة الاستراتيجية بين سلطنة عُمان والمحيط الهندي، والأبعاد البحرية والجيوسياسية لهذه العلاقة.</p>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        تحميل المحاضرة
+                        <span class="material-symbols-outlined" style="font-size:16px">download</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">picture_as_pdf</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Lecture 3 -->
+        <a href="محاضرة_عمان_والمحيط_الهندي111.pdf" target="_blank"
+           class="lecture-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800"
+           data-cat="قانون البحار">
+            <div class="relative p-6 md:p-8" style="background: linear-gradient(135deg, #004d7a 0%, #008793 50%, #00bf72 100%);">
+                <div class="flex items-start justify-between gap-4">
+                    <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-white" style="font-size:26px">anchor</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1">
+                        <span class="material-symbols-outlined text-white/80" style="font-size:14px">picture_as_pdf</span>
+                        <span style="color:white;font-size:11px;font-weight:700;">PDF</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <span class="inline-block bg-white/15 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">قانون البحار</span>
+                    <h3 class="text-white font-black text-lg leading-snug">عُمان والمحيط الهندي — الطبعة المحدّثة</h3>
+                </div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <p class="text-[#4e6797] text-sm leading-relaxed mb-4 line-clamp-2">نسخة موسّعة من محاضرة عُمان والمحيط الهندي تتضمن تحديثات على الوضع الراهن والمستجدات الاستراتيجية.</p>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        تحميل المحاضرة
+                        <span class="material-symbols-outlined" style="font-size:16px">download</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">picture_as_pdf</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Lecture 4 -->
+        <a href="مضيق_هرمز.pdf" target="_blank"
+           class="lecture-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800"
+           data-cat="قانون البحار">
+            <div class="relative p-6 md:p-8" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+                <div class="flex items-start justify-between gap-4">
+                    <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-white" style="font-size:26px">route</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1">
+                        <span class="material-symbols-outlined text-white/80" style="font-size:14px">picture_as_pdf</span>
+                        <span style="color:white;font-size:11px;font-weight:700;">PDF</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <span class="inline-block bg-white/15 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">قانون البحار</span>
+                    <h3 class="text-white font-black text-lg leading-snug">مضيق هرمز</h3>
+                </div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <p class="text-[#4e6797] text-sm leading-relaxed mb-4 line-clamp-2">دراسة قانونية وجيوسياسية شاملة لمضيق هرمز، ووضعه في ضوء القانون الدولي للبحار، وأبعاده الاستراتيجية للمنطقة.</p>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        تحميل المحاضرة
+                        <span class="material-symbols-outlined" style="font-size:16px">download</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">picture_as_pdf</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Lecture 5 -->
+        <a href="محاضرة_عن_السياسة_الخارجية_العمانية1oct2022.pdf" target="_blank"
+           class="lecture-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800"
+           data-cat="السياسة الخارجية">
+            <div class="relative p-6 md:p-8" style="background: linear-gradient(135deg, #2d1b69 0%, #553c9a 50%, #7c5cbf 100%);">
+                <div class="flex items-start justify-between gap-4">
+                    <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-white" style="font-size:26px">public</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1">
+                        <span class="material-symbols-outlined text-white/80" style="font-size:14px">picture_as_pdf</span>
+                        <span style="color:white;font-size:11px;font-weight:700;">PDF</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <span class="inline-block bg-white/15 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">السياسة الخارجية</span>
+                    <h3 class="text-white font-black text-lg leading-snug">السياسة الخارجية العمانية</h3>
+                </div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">calendar_today</span>
+                    <span>أكتوبر 2022</span>
+                </div>
+                <p class="text-[#4e6797] text-sm leading-relaxed mb-4 line-clamp-2">محاضرة معمّقة في أسس وثوابت السياسة الخارجية العمانية، ومنهجها في التعامل مع القضايا الإقليمية والدولية.</p>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        تحميل المحاضرة
+                        <span class="material-symbols-outlined" style="font-size:16px">download</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">picture_as_pdf</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Lecture 6 -->
+        <a href="محاضرة_السياسة_الدولية_والنظام_العالمي_الجديد__كلية_القيادة_والأركان_بتاريخ_9_مايو_2022.pdf" target="_blank"
+           class="lecture-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800"
+           data-cat="السياسة الدولية">
+            <div class="relative p-6 md:p-8" style="background: linear-gradient(135deg, #1a2a1a 0%, #2d5a27 50%, #4a8f3f 100%);">
+                <div class="flex items-start justify-between gap-4">
+                    <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-white" style="font-size:26px">globe_asia</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1">
+                        <span class="material-symbols-outlined text-white/80" style="font-size:14px">picture_as_pdf</span>
+                        <span style="color:white;font-size:11px;font-weight:700;">PDF</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <span class="inline-block bg-white/15 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">السياسة الدولية</span>
+                    <h3 class="text-white font-black text-lg leading-snug">السياسة الدولية والنظام العالمي الجديد</h3>
+                </div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">calendar_today</span>
+                    <span>9 مايو 2022 · كلية القيادة والأركان</span>
+                </div>
+                <p class="text-[#4e6797] text-sm leading-relaxed mb-4 line-clamp-2">محاضرة مقدّمة لكلية القيادة والأركان تتناول ملامح النظام الدولي الجديد وتحولاته، وانعكاساتها على الأمن الإقليمي.</p>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        تحميل المحاضرة
+                        <span class="material-symbols-outlined" style="font-size:16px">download</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">picture_as_pdf</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Lecture 7 -->
+        <a href="محاضرة_بقسم_التاريخ_بجامعة_السلطان_قابوس_19225.pdf" target="_blank"
+           class="lecture-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800"
+           data-cat="السياسة الدولية">
+            <div class="relative p-6 md:p-8" style="background: linear-gradient(135deg, #5a2d00 0%, #a0522d 50%, #c8874a 100%);">
+                <div class="flex items-start justify-between gap-4">
+                    <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-white" style="font-size:26px">school</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1">
+                        <span class="material-symbols-outlined text-white/80" style="font-size:14px">picture_as_pdf</span>
+                        <span style="color:white;font-size:11px;font-weight:700;">PDF</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <span class="inline-block bg-white/15 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">السياسة الدولية</span>
+                    <h3 class="text-white font-black text-lg leading-snug">محاضرة جامعة السلطان قابوس — قسم التاريخ</h3>
+                </div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-xs text-[#4e6797] mb-2">
+                    <span class="material-symbols-outlined" style="font-size:14px">location_on</span>
+                    <span>جامعة السلطان قابوس · قسم التاريخ</span>
+                </div>
+                <p class="text-[#4e6797] text-sm leading-relaxed mb-4 line-clamp-2">محاضرة أكاديمية مقدّمة لطلاب قسم التاريخ في جامعة السلطان قابوس تتناول أبعاد السياسة الدولية والتاريخ الدبلوماسي العماني.</p>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        تحميل المحاضرة
+                        <span class="material-symbols-outlined" style="font-size:16px">download</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">picture_as_pdf</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Lecture 8 -->
+        <a href="محاضرة_مجلس_التعاون.pdf" target="_blank"
+           class="lecture-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800"
+           data-cat="الدبلوماسية">
+            <div class="relative p-6 md:p-8" style="background: linear-gradient(135deg, #1a0a2e 0%, #3d1a6e 50%, #6a35b8 100%);">
+                <div class="flex items-start justify-between gap-4">
+                    <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-white" style="font-size:26px">handshake</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1">
+                        <span class="material-symbols-outlined text-white/80" style="font-size:14px">picture_as_pdf</span>
+                        <span style="color:white;font-size:11px;font-weight:700;">PDF</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <span class="inline-block bg-white/15 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">الدبلوماسية</span>
+                    <h3 class="text-white font-black text-lg leading-snug">محاضرة مجلس التعاون</h3>
+                </div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <p class="text-[#4e6797] text-sm leading-relaxed mb-4 line-clamp-2">دراسة شاملة في هياكل مجلس التعاون لدول الخليج العربي، آليات عمله، وتحدياته الراهنة في ضوء المتغيرات الإقليمية.</p>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        تحميل المحاضرة
+                        <span class="material-symbols-outlined" style="font-size:16px">download</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">picture_as_pdf</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Lecture 9 -->
+        <a href="الدبلوماسية_الإقتصادية_MOD.pdf" target="_blank"
+           class="lecture-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800"
+           data-cat="الدبلوماسية">
+            <div class="relative p-6 md:p-8" style="background: linear-gradient(135deg, #2d4a00 0%, #5a8f00 50%, #8abf3a 100%);">
+                <div class="flex items-start justify-between gap-4">
+                    <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-white" style="font-size:26px">currency_exchange</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1">
+                        <span class="material-symbols-outlined text-white/80" style="font-size:14px">picture_as_pdf</span>
+                        <span style="color:white;font-size:11px;font-weight:700;">PDF</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <span class="inline-block bg-white/15 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">الدبلوماسية</span>
+                    <h3 class="text-white font-black text-lg leading-snug">الدبلوماسية الاقتصادية</h3>
+                </div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <p class="text-[#4e6797] text-sm leading-relaxed mb-4 line-clamp-2">دراسة معمّقة في مفهوم الدبلوماسية الاقتصادية وأدواتها، ودور سلطنة عُمان في توظيفها لخدمة مصالحها التنموية والاستراتيجية.</p>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        تحميل المحاضرة
+                        <span class="material-symbols-outlined" style="font-size:16px">download</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">picture_as_pdf</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Lecture 10 -->
+        <a href="عرض_محاضرة__القضايا_السياسية_المعاصرة.pdf" target="_blank"
+           class="lecture-card group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-[#e7ebf3] dark:border-slate-800"
+           data-cat="السياسة الدولية">
+            <div class="relative p-6 md:p-8" style="background: linear-gradient(135deg, #3d0000 0%, #8b1a1a 50%, #c0392b 100%);">
+                <div class="flex items-start justify-between gap-4">
+                    <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-white" style="font-size:26px">analytics</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-white/15 rounded-lg px-3 py-1">
+                        <span class="material-symbols-outlined text-white/80" style="font-size:14px">picture_as_pdf</span>
+                        <span style="color:white;font-size:11px;font-weight:700;">PDF</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <span class="inline-block bg-white/15 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">السياسة الدولية</span>
+                    <h3 class="text-white font-black text-lg leading-snug">القضايا السياسية المعاصرة</h3>
+                </div>
+            </div>
+            <div class="p-4 md:p-5 flex flex-col flex-1">
+                <p class="text-[#4e6797] text-sm leading-relaxed mb-4 line-clamp-2">عرض تحليلي شامل للقضايا السياسية المعاصرة وإشكالياتها على الصعيدين الإقليمي والدولي من منظور أكاديمي.</p>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1 text-primary font-bold text-sm">
+                        تحميل المحاضرة
+                        <span class="material-symbols-outlined" style="font-size:16px">download</span>
+                    </span>
+                    <span class="material-symbols-outlined text-red-500" style="font-size:20px">picture_as_pdf</span>
+                </div>
+            </div>
+        </a>
+
+    </div><!-- end grid -->
+
+</main>
+
+<!-- Footer -->
+<footer class="py-10 md:py-12 px-4 md:px-6 border-t border-[#e7ebf3] dark:border-gray-800 bg-background-light dark:bg-background-dark mt-16 md:mt-20">
+    <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8">
+      <div class="text-[#4e6797] text-sm text-center md:text-right">
+            © 2026 موسوعة عُمان وقانون البحار. جميع الحقوق محفوظة. <br> Developed by Sheikha Al Hadei
+        </div>
+        <div class="flex gap-4 md:gap-6">
+          
+            <a class="text-[#4e6797] hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+          
+        </div>
+    </div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+    const isHidden = menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    icon.textContent = isHidden ? 'close' : 'menu';
+}
+
+function filterBy(cat) {
+    const cards = document.querySelectorAll('#lectures-grid a');
+    const btns = document.querySelectorAll('.filter-btn');
+
+    btns.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.filter-btn[data-filter="${cat}"]`).classList.add('active');
+
+    let count = 0;
+    cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+            card.style.display = '';
+            count++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    const label = cat === 'all' ? `عرض ${count} محاضرة` : `عرض ${count} محاضرة في ${cat}`;
+    document.getElementById('count-label').textContent = label;
+}
+</script>
+
+</body>
+</html>
